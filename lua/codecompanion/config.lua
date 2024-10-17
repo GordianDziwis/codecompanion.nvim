@@ -657,13 +657,13 @@ This is the code, for context:
           role = constants.USER_ROLE,
           content = function()
             return fmt(
-              [[You are an expert at following the Conventional Commit specification. Given the git diff listed below, please generate a commit message for me:
+              [[You are an expert at following the Conventional Commit specification. Given the git  listed below, please generate a commit message for me:
 
-```diff
+```
 %s
 ```
 ]],
-              vim.fn.system("git diff --staged")
+              vim.fn.system("git --no-ext-diff --staged")
             )
           end,
           opts = {
@@ -706,7 +706,7 @@ This is the code, for context:
       },
       intro_message = "Welcome to CodeCompanion ✨! Press ? for options",
 
-      separator = "─", -- The separator between the different messages in the chat buffer
+      separator = "─", -- The separator between the erent messages in the chat buffer
       show_settings = false, -- Show LLM settings at the top of the chat buffer?
       show_token_count = true, -- Show the token count for each response?
       start_in_insert_mode = false, -- Open the chat buffer in insert mode?
@@ -717,12 +717,12 @@ This is the code, for context:
         return " (" .. tokens .. " tokens)"
       end,
     },
-    diff = {
+     = {
       enabled = true,
       close_chat_at = 240, -- Close an open chat buffer if the total columns of your display are less than...
       layout = "vertical", -- vertical|horizontal split for default provider
       opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
-      provider = "default", -- default|mini_diff
+      provider = "default", -- default|mini_
     },
     inline = {
       -- If the inline prompt creates a new buffer, how should we display this?
